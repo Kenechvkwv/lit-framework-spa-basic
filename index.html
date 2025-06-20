@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <nav style="text-align: center; margin-top: 2rem">
+      <a href="/" onclick="navigate(event)">Contact</a> |
+      <a href="/about" onclick="navigate(event)">About</a>
+    </nav>
+
+    <div id="app"></div>
+
+    <script>
+      function navigate(e) {
+        e.preventDefault();
+        const href = e.target.getAttribute("href");
+        history.pushState({}, "", href);
+        window.dispatchEvent(new Event("popstate"));
+      }
+    </script>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
